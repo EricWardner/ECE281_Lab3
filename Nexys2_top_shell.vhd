@@ -1,8 +1,8 @@
 ----------------------------------------------------------------------------------
 -- Company: USAFA
--- Engineer: Silva
+-- Engineer: C3C Eric Wardner
 -- 
--- Create Date:    12:43:25 07/07/2012 
+-- Create Date:    0600 11 March 2014 
 -- Module Name:    Nexys2_Lab3top - Behavioral 
 -- Target Devices: Nexys2 Project Board
 -- Tool versions: 
