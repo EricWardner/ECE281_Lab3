@@ -147,7 +147,7 @@ LED <= CLOCKBUS_SIG(26 DOWNTO 19);
 --------------------------------------------------------------------------------------
 
 nibble0 <= floorSig;
-nibble1 <= "0000";
+nibble1 <= nextFloorSig;
 nibble2 <= "0000";
 nibble3 <= "0000";
 
@@ -194,22 +194,22 @@ nibble3 <= "0000";
 -----------------------------------------------------------------------------
 --Instantiate the design you with to implement below and start wiring it up!:
 -----------------------------------------------------------------------------
-	Inst_MooreElevatorController_Shell: MooreElevatorController_Shell PORT MAP(
-		clk => ClockBus_sig(25),
-		reset => btn(3),
-		stop => switch(1),
-		up_down => switch(0),
-		floor => floorSig
-	);
---	
---	Inst_MealyElevatorController_Shell: MealyElevatorController_Shell PORT MAP(
+--	Inst_MooreElevatorController_Shell: MooreElevatorController_Shell PORT MAP(
 --		clk => ClockBus_sig(25),
 --		reset => btn(3),
 --		stop => switch(1),
 --		up_down => switch(0),
---		floor => floorSig,
---		nextfloor => nextFloorSig
+--		floor => floorSig
 --	);
+	
+	Inst_MealyElevatorController_Shell: MealyElevatorController_Shell PORT MAP(
+		clk => ClockBus_sig(25),
+		reset => btn(3),
+		stop => switch(1),
+		up_down => switch(0),
+		floor => floorSig,
+		nextfloor => nextFloorSig
+	);
 
 end Behavioral;
 
