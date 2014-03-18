@@ -126,4 +126,10 @@ This code is bad becasue the output logic is put in the state logic. like so
 floor <= "0001" when (floor_state = floor1) and (up_down = 1) else
 ```
 
-
+#Functionality
+###Basic Moore
+###Basic Mealy
+###Moore Floors
+###Change Inputs
+###Light Show
+###Two Elevators
