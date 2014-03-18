@@ -112,6 +112,26 @@ signal ClockBus_sig : STD_LOGIC_VECTOR (26 downto 0);
 		nextfloor : OUT std_logic_vector(3 downto 0)
 		);
 	END COMPONENT;
+	
+	COMPONENT PrimeFloorsMooreController
+	PORT(
+		clk : IN std_logic;
+		reset : IN std_logic;
+		stop : IN std_logic;
+		up_down : IN std_logic;          
+		floor10sDigit : OUT std_logic_vector(3 downto 0);
+		floor : OUT std_logic_vector(3 downto 0)
+		);
+	END COMPONENT;
+	
+	COMPONENT InputFloorsController
+	PORT(
+		clk : IN std_logic;
+		reset : IN std_logic;
+		floorInput : IN std_logic_vector(3 downto 0);       
+		floor : OUT std_logic_vector(3 downto 0)
+		);
+	END COMPONENT;
 
 
 
@@ -119,7 +139,7 @@ signal ClockBus_sig : STD_LOGIC_VECTOR (26 downto 0);
 --Insert any required signal declarations below
 --------------------------------------------------------------------------------------
 
-signal floorSig, nextFloorSig : std_logic_vector(3 downto 0);
+signal floorSig, nextFloorSig, floorSig10sDigit : std_logic_vector(3 downto 0);
 
 begin
 
@@ -147,7 +167,7 @@ LED <= CLOCKBUS_SIG(26 DOWNTO 19);
 --------------------------------------------------------------------------------------
 
 nibble0 <= floorSig;
-nibble1 <= nextFloorSig;
+nibble1 <= "0000";
 nibble2 <= "0000";
 nibble3 <= "0000";
 
@@ -201,15 +221,36 @@ nibble3 <= "0000";
 --		up_down => switch(0),
 --		floor => floorSig
 --	);
+--	
+--	Inst_MealyElevatorController_Shell: MealyElevatorController_Shell PORT MAP(
+--		clk => ClockBus_sig(25),
+--		reset => btn(3),
+--		stop => switch(1),
+--		up_down => switch(0),
+--		floor => floorSig,
+--		nextfloor => nextFloorSig
+--	);
+
+
+--	Inst_PrimeFloorsMooreController: PrimeFloorsMooreController PORT MAP(
+--		clk => ClockBus_sig(25),
+--		reset => btn(3),
+--		stop => switch(1),
+--		up_down => switch(0),
+--		floor10sDigit => floorSig10sDigit,
+--		floor => floorSig
+--	);
 	
-	Inst_MealyElevatorController_Shell: MealyElevatorController_Shell PORT MAP(
+
+	Inst_InputFloorsController: InputFloorsController PORT MAP(
 		clk => ClockBus_sig(25),
 		reset => btn(3),
-		stop => switch(1),
-		up_down => switch(0),
-		floor => floorSig,
-		nextfloor => nextFloorSig
+		floorInput => switch (3 downto 0),
+		floor => floorSig
 	);
+
+
+
 
 end Behavioral;
 
