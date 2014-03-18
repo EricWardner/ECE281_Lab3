@@ -102,3 +102,26 @@ case floorInput is
 this was repeated for all floor options. 
 Tesing is shown in the following video
 [![Input Test](http://img.youtube.com/vi/yOPqu9JjM1E/0.jpg)](https://www.youtube.com/watch?v=yOPqu9JjM1E)
+
+####Code Critique 
+The given top shell had some bad code in it. 
+
+######Bad
+```VHDL
+if clk'event and clk='1' then
+```
+This works but is bad syntax because it uses the "and" contitional logic. Better more widley used code is as follows
+```VHDL
+if RISING_EDGE(CLK) then
+```
+######Bad
+```VHDL
+when floor1 =>
+	if (up_down='1' and stop='0') then 
+````
+This code is bad becasue the output logic is put in the state logic. like so
+```VHDL
+floor <= "0001" when (floor_state = floor1) and (up_down = 1) else
+```
+
+
