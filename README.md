@@ -106,20 +106,22 @@ Tesing is shown in the following video
 ####Code Critique 
 The given top shell had some bad code in it. 
 
-######Bad
+######Bad Code
 ```VHDL
 if clk'event and clk='1' then
 ```
 This works but is bad syntax because it uses the "and" contitional logic. Better more widley used code is as follows
+######Good Code
 ```VHDL
 if RISING_EDGE(CLK) then
 ```
-######Bad
+######Bad Code
 ```VHDL
 when floor1 =>
 	if (up_down='1' and stop='0') then 
 ````
 This code is bad becasue the output logic is put in the state logic. like so
+######Good Code
 ```VHDL
 floor <= "0001" when (floor_state = floor1) and (up_down = 1) else
 ```
