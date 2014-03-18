@@ -101,7 +101,7 @@ case floorInput is
 ```
 this was repeated for all floor options. 
 Tesing is shown in the following video
-[![Input Test](http://img.youtube.com/vi/yOPqu9JjM1E/0.jpg)](https://www.youtube.com/watch?v=yOPqu9JjM1E)
+
 
 ####Code Critique 
 The given top shell had some bad code in it. 
