@@ -128,8 +128,12 @@ floor <= "0001" when (floor_state = floor1) and (up_down = 1) else
 
 #Functionality
 ###Basic Moore
+Checked by Captain Silva
 ###Basic Mealy
+Checked by Captain Silva
 ###Moore Floors
+[![Prime Test](http://img.youtube.com/vi/cbt55nX3hn0/0.jpg)](https://www.youtube.com/watch?v=cbt55nX3hn0)
 ###Change Inputs
+[![Input Test](http://img.youtube.com/vi/yOPqu9JjM1E/0.jpg)](https://www.youtube.com/watch?v=yOPqu9JjM1E)
 ###Light Show
 ###Two Elevators
